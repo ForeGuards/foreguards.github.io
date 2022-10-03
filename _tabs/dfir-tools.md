@@ -1,5 +1,5 @@
 ---
-layout: DFIR Tools
+# the default layout is 'page'
 icon: fas fa-screwdriver-wrench
 order: 3
 ---
