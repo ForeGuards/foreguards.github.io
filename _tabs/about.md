@@ -21,7 +21,7 @@ I will do my best to share with all of you the knowledge I will acquire in schoo
 
 
 # Educational background
-* **2021 - 2022**
+> **2021 - 2022**
 
 Bern University of Applied Sciences - BFH <br>
 Certificates of Advanced Studies (CAS) in Digital Forensics & Cyber Investigations
@@ -30,7 +30,7 @@ Certificates of Advanced Studies (CAS) in Digital Forensics & Cyber Investigatio
 * CAS Specialist in in Digital Forensics and Cyber Investigations
 <br>
 <br>
-* **2017**
+> **2017**
 
 IFA - The Higher Technical School of the Digital Economy
 <br>
