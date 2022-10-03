@@ -1,7 +1,6 @@
 ---
 title: Blue Team Commands
 author: Giuseppe Paternicola
-date: 2022-10-01 17:00:00 -500
 categories: [blue-team,commands]
 tags: [blue-team,commands]              # TAG names should always be lowercase
 ---
