@@ -12,7 +12,6 @@ I am also studying Digital Forensics and Cyber Investigations at a university in
 I will do my best to share with all of you the knowledge I will acquire in school and at work.
 
 ---
-<br>
 
 # About Giuseppe Social Media Profiles
 * [Twitter](https://twitter.com/foreguards)
@@ -20,8 +19,6 @@ I will do my best to share with all of you the knowledge I will acquire in schoo
 * [Patreon](https://www.patreon.com/foreguards)
 * [Youtube](https://www.youtube.com/c/ForeGuards)
 
-
-<br>
 
 # Educational background
 * **2021 - 2022**
