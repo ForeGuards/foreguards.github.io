@@ -1,8 +1,8 @@
 ---
 title: Blue Team Commands
 author: Giuseppe Paternicola
-categories: [blue-team,commands]
-tags: [blue-team,commands]              # TAG names should always be lowercase
+categories: [commands]
+tags: [blueteam,commands]              # TAG names should always be lowercase
 ---
 
 # Windows Commands
