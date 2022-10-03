@@ -9,12 +9,19 @@
 -
   type: linkedin
   icon: 'fab fa-linkedin'
+  url: 'https://www.linkedin.com/in/giuseppe-paternicola-7a4b5089/'
 -
   type: youtube
   icon: 'fab fa-youtube'
+  url: 'https://www.youtube.com/channel/UC2a2RV0-Em9S0wXPKjoMjjQ'
+-
+  type: ko-fi
+  icon: 'fas fa-mug-hot'
+  url: 'https://ko-fi.com/foreguards'
 -
   type: patreon
   icon: 'fab fa-patreon'
+  url: 'https://www.patreon.com/foreguards'
 -
   type: email
   icon: 'fas fa-envelope'
