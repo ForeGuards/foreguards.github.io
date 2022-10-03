@@ -30,6 +30,7 @@ Certificates of Advanced Studies (CAS) in Digital Forensics & Cyber Investigatio
 * CAS Specialist in in Digital Forensics and Cyber Investigations
 <br>
 <br>
+
 > **2017**
 
 IFA - The Higher Technical School of the Digital Economy
