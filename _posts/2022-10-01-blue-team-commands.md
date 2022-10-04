@@ -2,7 +2,7 @@
 title: Blue Team Commands
 author: Giuseppe Paternicola
 categories: [commands]
-tags: [blueteam,commands,network]              # TAG names should always be lowercase
+tags: [blueteam,commands,network,memory,activedirectory,accouts,passwords,user,microsoft,linux,events,logs,malware,firewall,triage,hash,]              # TAG names should always be lowercase
 ---
 
 # Windows Commands
@@ -13,14 +13,14 @@ Here are we going to find all blue team commands for Windows...
 
 ### Basic Network Discovery:
 
-```cmd
+```shell
 net view /all
 net view \\<HOST NAME>
 ```
 
-### Basic ping scan and write output to file:
+### Basic ping scan and write output to file:
 
-```cmd
+```shell
 for /L %I in (1,1,254) do ping -w 30 -n 1 192.168.1.%I | find "Reply" >> <OUTPUT FILE NAME>.txt
 ```
 
@@ -28,13 +28,13 @@ for /L %I in (1,1,254) do ping -w 30 -n 1 192.168.1.%I | find "Reply" >> <OUTPUT
 
 ### Enable DHCP Server Logging:
 
-```cmd
+```shell
 reg add HKLM\System\CurrentControlSet\Services\DhcpServer\Parameters /v ActivityLogFlag /t REG_DWORD /d 1
 ```
 
 #### Default DHCP Location Windows 2003/2008/2012:
-
-```cmd
+ 
+```shell
 %windir%\System32\Dhcp
 ```
 
@@ -43,7 +43,7 @@ reg add HKLM\System\CurrentControlSet\Services\DhcpServer\Parameters /v Activity
 ### File checksum Integrity Verifier (FCIV):
 Ref. http://support2.microsoft.com/kb/841290
 
-```cmd
+```shell
 fciv.exe <FILE TO HASH>
 ```
 
@@ -52,13 +52,13 @@ Ref. https://technet.microsoft.com/en­-us/sysinternals/psloggedon.aspx
 
 ### Get users logged on:
 
-```cmd
+```shell
 psloggedon \\computername
 ```
 
 ### Script loop scan:
 
-```cmd
+```shell
 for /L %i in (1,1,254) do psloggedon \\192.168.l.%i >> C:\users_output.txt
 ```
 
@@ -66,7 +66,7 @@ for /L %i in (1,1,254) do psloggedon \\192.168.l.%i >> C:\users_output.txt
 
 ### Basic scan of a target IP address:
 
-```cmd
+```shell
 mbsacli.exe /target <TARGET IP ADDRESS> /n os+iis+sql+password
 ``` 
 
@@ -74,7 +74,7 @@ mbsacli.exe /target <TARGET IP ADDRESS> /n os+iis+sql+password
 
 ### Change password:
 
-```cmd
+```shell
 net user <USER NAME> * /domain
 net user <USER NAME> <NEW PASSWORD>
 ```
@@ -82,7 +82,7 @@ net user <USER NAME> <NEW PASSWORD>
 ### Change password remotely:
 Ref. https://technet.microsoft.com/en­-us/sysinternals/bb897543
 
-```cmd
+```shell
 pspasswd.exe \\<IP ADDRESS or NAME OF REMOTE COMPUTER> -u <REMOTE USER NAME> -p <NEW PASSWORD>
 ```
 
@@ -96,13 +96,13 @@ pspasswd.exe \\<IP ADDRESS or NAME OF REMOTE COMPUTER>
 
 ### Add new malicious domain to hosts file, and route to localhost:
 
-```cmd
+```shell
 echo 127.0.0.1 <MALICIOUS DOMAIN> >> C:\Windows\System32\drivers\etc\hosts
 ```
 
 Check if hosts file is working, by sending ping to 127.0.0.1:
 
-```cmd
+```shell
 ping <MALICIOUS DOMAIN> -n 1
 ```
 
@@ -128,7 +128,7 @@ Get-Eventlog Security 4625,4634,4647,4624,4625,4648,4675,6272,6273,6274,62 75,62
 ## LIVE TRIAGE
 
 ### SYSTEM INFORMATION
-```cmd
+```shell
 echo %DATE% %TIME%
 hostname
 systeminfo
@@ -139,12 +139,12 @@ wmic computersystem list brief
 ```
 
 Ref. https://technet.microsoft.com/en­-us/sysinternals/psinfo.aspx
-```cmd
+```shell
 psinfo -accepteula -s -h -d
 ```
 
 ## USER INFORMATION
-```cmd
+```shell
 whoami
 net users
 net localgroup administrators
@@ -157,7 +157,7 @@ wmic netclient list brief C:\> doskey /history> history.txt
 ```
 
 ## NETWORK INFORMATION
-```cmd
+```shell
 netstat -e
 netstat -naob
 netstat -nr
@@ -177,7 +177,7 @@ wmic netuse get name,username,connectiontype,localname
 ```
 
 ## SERVICE INFORMATION
-```cmd
+```shell
 at
 tasklist
 tasklist /SVC
@@ -203,33 +203,33 @@ Get-Process !select modules!Foreach­ Object{$_.modules}
 
 ## POLICY, PATCH AND SETTINGS INFORMATION
 
-```cmd
+```shell
 gpresult /H report.html /F
 ```
 
 ### List GPO software installed:
-```cmd
+```shell
 reg query "HKLM\Software\Microsoft\Windows\Current Version\Group Policy\AppMgmt"
 ``` 
 
 ## AUTORUN AND AUTOLOAD INFORMATION
 
 ### Startup information:
-```cmd
+```shell
 wmic startup list full
 wmic ntdomain list brief
 ```
 
 ### Show all autorun files, export to csv and check with VirusTotal:
 
-```cmd
+```shell
 autorunsc.exe -accepteula -a -c -i -e -f -l -m -v
 ```
 
 ## LOGS
 
 ### Copy event logs:
-```cmd
+```shell
 wevtutil epl Security C:\<BACK UP PATH>\mylogs.evtx
 wevtutil epl System C:\<BACK UP PATH>\mylogs.evtx
 wevtutil epl Application C:\<BACK UP PATH>\mylogs.evtx
@@ -238,51 +238,51 @@ wevtutil epl Application C:\<BACK UP PATH>\mylogs.evtx
 ## FILES, DRIVES AND SHARES INFORMATION
 
 ### Find multiple file types or a file:
-```cmd
+```shell
 dir /A /5 /T:A *,exe *,dll *,bat *·PS1 *,zip
 dir /A /5 /T:A <BAD FILE NAME>,exe
 ```
 
 ### Find executable (.exe) files newer than Jan 1, 2017:
-```cmd
-forfiles /p C:\ /M *,exe /5 /0 +1/1/2017 /C "cmd /c echo @fdate @ftime @path"
+```shell
+forfiles /p C:\ /M *,exe /5 /0 +1/1/2017 /C "shell /c echo @fdate @ftime @path"
 ```
 
 ### Find multiple files types using loop:
-```cmd
-for %G in (.exe, .dll, .bat, .ps) do forfiles - p "C:" -m *%G -s -d +1/1/2017 -c "cmd /c echo @fdate @ftime @path"
+```shell
+for %G in (.exe, .dll, .bat, .ps) do forfiles - p "C:" -m *%G -s -d +1/1/2017 -c "shell /c echo @fdate @ftime @path"
 ```
 
 ### Search for files newer than date:
-```cmd
-orfiles /PC:\ /5 /0 +1/01/2017 /C "cmd /c echo @path @fdate"
+```shell
+forfiles /PC:\ /5 /0 +1/01/2017 /C "shell /c echo @path @fdate"
 ``` 
 
 ### Find large files: (example <20 MB)
-```cmd
-forfiles /5 /M * /C "cmd /c if @fsize GEO 2097152 echo @path @fsize"
+```shell
+forfiles /5 /M * /C "shell /c if @fsize GEO 2097152 echo @path @fsize"
 ```
 
 ### Find files with Alternate Data Streams:
 Ref. https://technet.microsoft.com/en­-us/sysinternals/streams.aspx
-```cmd 
+```shell 
 streams -s <FILE OR DIRECTORY>
 ```
 
 #### Find files with bad signature into csv:
 Ref. https://technet.microsoft.com/en­-us/sysinternals/bb897441.aspx
-```cmd
+```shell
 sigcheck -c -h -s -u -nobanner <FILE OR DIRECTORY> > <OUTPUT FILENAME>,csv
 ```
 
 ### Find and show only unsigned files with bad signature in C:
-```cmd
+```shell
 sigcheck -e -u -vr -s C:\
 ```
 
 ### Lit loaded unsigned Dlls:
 Ref. https://technet.microsoft.com/en­-us/sysinternals/bb896656.aspx
-```cmd
+```shell
 listdlls.exe -u
 listdlls.exe -u <PROCESS NAME OR PID>
 ```
@@ -296,12 +296,12 @@ listdlls.exe -u <PROCESS NAME OR PID>
 
 #### Signature check of dlt, exe files:
 Ref. http://technet.microsoft.com/en­-us/sysinternals/bb897441.aspx
-```cmd
+```shell
 sigcheck.exe -u -e (:\<DIRECTORY>
 ```
 
 ### Send to VirusTotat:
-```cmd
+```shell
 sigcheck.exe -vt <SUSPICIOUS FILE NAME>
 ```
 
@@ -342,20 +342,20 @@ Ref. http://kromer.pl/malware-analysis/memory­ forensics-using-volatility-toolk
 Ref. http://sourceforge.net/projects/mdd/ <br>
 Ref. https://technet.microsoft.com/en­ us/sysinternals/psexec.aspx
 
-```cmd
+```shell
 psexec.exe \\<HOST NAME OR IP ADDRESS> -u <DOMAIN>\<PRIVILEGED ACCOUNT> -p <PASSWORD> -c mdd_l,3.exe --o C:\memory.dmp
 ```
 
 ### Extract exe/dll from memory dump: <br>
 Ref. https://github.com/volatilityfoundation/volatility
 
-```cmd
+```shell
 volatility dlldump -f memory.dmp -0 dumps/ C:\> volatility procmemdump -f memory.dmp -0 dumps/ Create hard drive image using dc3dd of C:\:
 ```
 
 Ref. "https://sourceforge.net/projects/dc3dd/files/dc3dd/7.2%20-%20Windows/"
-```cmd
-dc3dd,exe if=\\,\c: of=d:\<ATTACHED OR TARGET DRIVE>\<IMAGE NAME>,dd hash=md5 log=d:\<MOUNTED LOCATION>\<LOG NAME>,log
+```shell
+dc3dd.exe if=\\,\c: of=d:\<ATTACHED OR TARGET DRIVE>\<IMAGE NAME>,dd hash=md5 log=d:\<MOUNTED LOCATION>\<LOG NAME>,log
 ```
 
 ## BACKUP
@@ -371,19 +371,19 @@ Restore-GPO -All -Domain <INSERT DOMAIN NAME> -Path \\Serverl\GpoBackups
 ```
 
 ### List all shadow files:
-```cmd
+```shell
 vssadmin List Shadows
 ```
 
 ### Browse Shadow Copy for files/folders:
-```cmd
+```shell
 mklink /d c:\<CREATE FOLDER>\<PROVIDE FOLDER NAME BUT DO NOT CREATE> \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopyl\
 ``` 
 
 ## OS CHEATS
 
 ### Pipe output to clipboard:
-```cmd
+```shell
 some_command.exe I clip
 ```
 
@@ -391,10 +391,8 @@ some_command.exe I clip
 ```powershell
 Get-Clipboard> clip.txt
 ```
-<br>
 
 ---
-<br>
 
 # Linux Commands
 Here are you going to find all blue team commands for Linux
@@ -418,7 +416,7 @@ smbclient -L <HOST NAME> # smbstatus
 ### Basic ping scan:
 
 ```shell
-foripin$(seq1254); doping-c1 192.168.1.$ip>/dev/null; [ $? -eq 0 ] && echo
+for ip in $(seq1254); doping-c1 192.168.1.$ip>/dev/null; [ $? -eq 0 ] && echo
 "192.168.1.$ip UP" 11 : ; done
 ```
 
