@@ -2,7 +2,7 @@
 title: Blue Team Commands
 author: Giuseppe Paternicola
 categories: [commands]
-tags: [blueteam,commands,network,memory,activedirectory,accouts,passwords,user,microsoft,linux,events,logs,malware,firewall,triage,hash,]              # TAG names should always be lowercase
+tags: [blueteam,commands,network,memory,activedirectory,accouts,passwords,user,microsoft,linux,events,logs,malware,firewall,triage,hash,powershell,cmd,shell]              # TAG names should always be lowercase
 ---
 
 # Windows Commands
@@ -192,7 +192,8 @@ wmic process list status
 wmic process list memory 
 wmic job list brief
 ```
-```powerhsell
+
+```powershell
 Get-Service I Where-Object { $_.Status -eq "running" }
 ```
 
