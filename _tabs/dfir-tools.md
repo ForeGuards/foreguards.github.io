@@ -1,7 +1,7 @@
 ---
 # the default layout is 'page'
 title: DFIR Tools
-layout: tags
-icon: fas fa-gear
+layout: page
+icon: fas fa-info-circle
 order: 3
 ---
