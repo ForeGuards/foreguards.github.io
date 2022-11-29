@@ -17,7 +17,6 @@ I will do my best to share with all of you the knowledge I will acquire in schoo
 * [Twitter](https://twitter.com/foreguards)
 * [LinkedIn](https://www.linkedin.com/in/giuseppe-paternicola-7a4b5089)
 * [Patreon](https://www.patreon.com/foreguards)
-* [Youtube](https://www.youtube.com/c/ForeGuards)
 
 
 # Educational background
