@@ -1,6 +1,5 @@
 ---
 title: Blue Team Commands
-author: Giuseppe Paternicola
 categories: [commands]
 tags: [blueteam,commands,network,memory,activedirectory,accouts,passwords,user,microsoft,linux,events,logs,malware,firewall,triage,hash,powershell,cmd,shell]              # TAG names should always be lowercase
 ---
