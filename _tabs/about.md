@@ -37,6 +37,7 @@ IFA - The Higher Technical School of the Digital Economy
 * ICT System und Netzwerktechniker mit eidg. Fachausweis
 
 # Qualifications
+* **2022** - SANS FOR508 - Advanced Incident Response, Threat Hunting, and Digital Forensics
 * **2022** - CAS Advanced Studies in Digital Forensics and Cyber Investigations
 * **2022** - CAS Specialist in in Digital Forensics and Cyber Investigations
 * **2021** - Splunk Enterprise Certified Architect
